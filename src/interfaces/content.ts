@@ -2,9 +2,9 @@ export interface Content {
   id: string;
   image: string;
   title: string;
+  subTitle: string;
   description: string;
-  comments: number;
-  priority: number;
+  author: string;
 }
 
 export interface ContentResponse { 
