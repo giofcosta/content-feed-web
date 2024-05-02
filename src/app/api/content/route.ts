@@ -1,9 +1,8 @@
 import type { Content, ContentCard, ContentResponse } from "@/interfaces/content";
-import { NextRequest, NextResponse } from "next/server";
-
+import { NextResponse } from "next/server";
 
 // To handle a GET request to /api
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const {contentCards} = await fetchDataFromContentAPI();
     const normalizedData = normalizeData(contentCards);
@@ -32,13 +31,14 @@ async function fetchDataFromContentAPI() : Promise<ContentResponse> {
   return response.json();
 }
 
+// Normalize the data before returning to the front-end
 function normalizeData(data: ContentCard[]) : Content[] {
-  return data.sort((a, b) => a.metadata.priority - b.metadata.priority).map((content: ContentCard) => ({
+  return data.sort((a, b) => a.metadata.priority - b.metadata.priority).map<Content>((content: ContentCard) => ({
     id: content.id, 
     image: content.imageUri,
     title: content.textData?.title,
-    description: content.textData?.subTitle,
-    comments: content.comments?.length,
-    priority: content.metadata.priority
+    description: content.textData?.body,
+    author: `${content.textData?.author?.first} ${content.textData?.author?.last}`,
+    subTitle: content.textData?.subTitle,
   }));
 }
