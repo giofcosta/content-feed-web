@@ -1,4 +1,4 @@
-import type { ContentCard, Content } from "@/interfaces/content";
+import type { ContentCard, Content } from "@/types/content";
 
 // Normalize the data before returning to the front-end
 export function normalizeContent(data: ContentCard): Content {

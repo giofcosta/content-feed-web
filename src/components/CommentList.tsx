@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import CommentBlock from "./CommentBlock";
-import type { Comment, ContentWithComments } from "@/interfaces/content";
+import type { Comment, ContentWithComments } from "@/types/content";
 
 async function getComments(contentId: string): Promise<ContentWithComments> {
-  const res = await fetch(`/api/content/${contentId}`, {
+  const res = await fetch(`/api/v1/content/${contentId}`, {
     cache: "no-store",
   });
 

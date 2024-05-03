@@ -1,4 +1,4 @@
-import type { Comment } from "@/interfaces/content";
+import type { Comment } from "@/types/content";
 import Image from "next/image";
 import Like from "./Like";
 

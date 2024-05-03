@@ -1,4 +1,4 @@
-import type { Content } from "@/interfaces/content";
+import type { Content } from "@/types/content";
 import Image from "next/image";
 import DescriptionBlock from "./DescriptionBlock";
 import CommentList from "./CommentList";

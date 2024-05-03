@@ -1,8 +1,8 @@
-import type { Content } from "@/interfaces/content";
+import type { Content } from "@/types/content";
 import ContentCard from "./ContentCard";
 
 async function getData(): Promise<Content[]> {
-  const res = await fetch(`${process.env.URL}/api/content`, {
+  const res = await fetch(`${process.env.URL}/api/v1/content`, {
     next: { revalidate: 120 },
   });
 
