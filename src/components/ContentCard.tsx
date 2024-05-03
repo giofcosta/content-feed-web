@@ -1,4 +1,4 @@
-import type { Content } from "@/interfaces/content";
+import type { Content } from "@/types/content";
 import Image from "next/image";
 import DescriptionBlock from "./DescriptionBlock";
 import CommentList from "./CommentList";
@@ -24,7 +24,7 @@ const ContentCard = ({ content, priority }: { content: Content, priority: boolea
             {content.title}
           </p>
           <p className="block font-sans text-xs text-right antialiased font-normal leading-relaxed text-blue-gray-600 w-1/2 truncate hover:text-clip">
-            {content.description}
+            {content.author}
           </p>
         </div>
         <p className="block font-sans text-sm antialiased font-medium leading-medium text-gray-700 opacity-75 truncate mb-2">

@@ -1,4 +1,4 @@
-import type { ContentResponse } from "@/interfaces/content";
+import type { ContentResponse } from "@/types/content";
 
 // Fetch data from the mock Content API
 export async function fetchDataFromContentAPI(): Promise<ContentResponse> {
