@@ -5,6 +5,8 @@ export interface Content {
   subTitle: string;
   description: string;
   author: string;
+  comments: number;
+  priority: number;
 }
 
 export interface ContentResponse { 

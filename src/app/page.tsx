@@ -4,6 +4,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1 className="text-4xl font-extrabold leading-none tracking-tight text-blue-600 md:text-5xl lg:text-6xl dark:text-white mb-16">
+        Content{" "}
+        <mark className="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">
+          Feed
+        </mark>
+      </h1>
       <ContentList />
     </main>
   );
