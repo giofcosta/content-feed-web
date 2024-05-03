@@ -10,9 +10,11 @@ const ContentCard = ({ content }: { content: Content }) => {
         <Image
           src={content.image}
           alt={content.title}
-          loading="lazy"
-          fill
+          width={500}
+          height={500}
           key={content.id}
+          priority={false}
+          loading="lazy"
           className="object-contain w-full h-full bg-black"
         />
       </div>
@@ -31,7 +33,7 @@ const ContentCard = ({ content }: { content: Content }) => {
         <DescriptionBlock text={content.description} />
       </div>
       <div className="p-6 pt-0">
-        <CommentList contentId={content.id} count={content.comments} />
+        <CommentList contentId={content.id} count={content.commentsCount} />
       </div>
     </div>
   );

@@ -2,14 +2,10 @@
 
 import { useState } from "react";
 import CommentBlock from "./CommentBlock";
-import type { Comment } from "@/interfaces/content";
+import type { Comment, ContentWithComments } from "@/interfaces/content";
 
-async function getComments(contentId: string): Promise<Comment[]> {
-  const params = new URLSearchParams({
-    id: contentId,
-    comments: true.toString(),
-  });
-  const res = await fetch(`/api/content?` + params, {
+async function getComments(contentId: string): Promise<ContentWithComments> {
+  const res = await fetch(`/api/content/${contentId}`, {
     cache: "no-store",
   });
 
@@ -33,7 +29,7 @@ const CommentsBlock = ({
 
   const loadComments = async () => {
     setLoading(true);
-    const comments = await getComments(contentId);
+    const { comments } = await getComments(contentId);
     setComments(comments);
     setShowComments(true);
     setLoading(false);
