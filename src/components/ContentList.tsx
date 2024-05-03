@@ -3,7 +3,7 @@ import ContentCard from "./ContentCard";
 
 async function getData(): Promise<Content[]> {
   const res = await fetch(`${process.env.URL}/api/content`, {
-    next: { revalidate: 120 }
+    next: { revalidate: 120 },
   });
 
   if (!res.ok) {
@@ -16,10 +16,10 @@ async function getData(): Promise<Content[]> {
 export default async function ContentList() {
   const data = await getData();
   return (
-    <main>
+    <div className="w-[20rem] md:w-[42rem]">
       {data.map((content, index) => (
         <ContentCard key={index} content={content} priority={index < 3} />
       ))}
-    </main>
+    </div>
   );
 }

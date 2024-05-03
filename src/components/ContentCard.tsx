@@ -5,8 +5,8 @@ import CommentList from "./CommentList";
 
 const ContentCard = ({ content, priority }: { content: Content, priority: boolean }) => {
   return (
-    <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-[42rem] mb-5">
-      <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
+    <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl mb-5">
+      <div className="relative mx-2 md:mx-4 mt-2 md:mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-48 md:h-96">
         <Image
           src={content.image}
           alt={content.title}
