@@ -1,3 +1,6 @@
+export interface ContentWithComments extends Content {
+  comments: Comment[];
+}
 export interface Content {
   id: string;
   image: string;
@@ -5,6 +8,7 @@ export interface Content {
   subTitle: string;
   description: string;
   author: string;
+  commentsCount: number;
 }
 
 export interface ContentResponse { 

@@ -1,44 +1,20 @@
-import type { Content, ContentCard, ContentResponse } from "@/interfaces/content";
 import { NextResponse } from "next/server";
+import { fetchDataFromContentAPI } from "./content.api";
+import { normalizeContent } from "./content.normalize";
+import type { Content } from "@/interfaces/content";
 
 // To handle a GET request to /api
 export async function GET() {
   try {
-    const {contentCards} = await fetchDataFromContentAPI();
-    const normalizedData = normalizeData(contentCards);
+    const { contentCards } = await fetchDataFromContentAPI();
+    // Normalize and return all the cards
+    const normalizedData = contentCards
+      .sort((a, b) => a.metadata.priority - b.metadata.priority)
+      .reverse()
+      .map<Content>((contentCard) => normalizeContent(contentCard));
+      
     return NextResponse.json(normalizedData, { status: 200 });
   } catch (error) {
-    return NextResponse.json(error, { status: 500 });
+    return NextResponse.json(JSON.stringify(error), { status: 500 });
   }
-}
-
-// Utility to fetch data from the mock Content API
-async function fetchDataFromContentAPI() : Promise<ContentResponse> {
-  const response = await fetch(
-    "https://stoplight.io/mocks/engine/fullstack-spec/52502230/content",
-    {
-      headers: {
-        "Content-type": "application/json",
-        Prefer: "code=200, dynamic=true",
-      },
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-
-  return response.json();
-}
-
-// Normalize the data before returning to the front-end
-function normalizeData(data: ContentCard[]) : Content[] {
-  return data.sort((a, b) => a.metadata.priority - b.metadata.priority).map<Content>((content: ContentCard) => ({
-    id: content.id, 
-    image: content.imageUri,
-    title: content.textData?.title,
-    description: content.textData?.body,
-    author: `${content.textData?.author?.first} ${content.textData?.author?.last}`,
-    subTitle: content.textData?.subTitle,
-  }));
 }

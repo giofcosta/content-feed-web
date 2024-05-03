@@ -3,7 +3,7 @@ import ContentCard from "./ContentCard";
 
 async function getData(): Promise<Content[]> {
   const res = await fetch(`${process.env.URL}/api/content`, {
-    cache: "no-store",
+    next: { revalidate: 120 }
   });
 
   if (!res.ok) {
@@ -17,8 +17,8 @@ export default async function ContentList() {
   const data = await getData();
   return (
     <main>
-      {data.map((content) => (
-        <ContentCard content={content} />
+      {data.map((content, index) => (
+        <ContentCard key={index} content={content} priority={index < 3} />
       ))}
     </main>
   );
