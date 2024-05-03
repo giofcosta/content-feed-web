@@ -18,7 +18,7 @@ export default async function ContentList() {
   return (
     <main>
       {data.map((content, index) => (
-        <ContentCard key={index} content={content} />
+        <ContentCard key={index} content={content} priority={index < 3} />
       ))}
     </main>
   );

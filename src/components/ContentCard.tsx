@@ -3,7 +3,7 @@ import Image from "next/image";
 import DescriptionBlock from "./DescriptionBlock";
 import CommentList from "./CommentList";
 
-const ContentCard = ({ content }: { content: Content }) => {
+const ContentCard = ({ content, priority }: { content: Content, priority: boolean }) => {
   return (
     <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-[42rem] mb-5">
       <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
@@ -13,8 +13,8 @@ const ContentCard = ({ content }: { content: Content }) => {
           width={500}
           height={500}
           key={content.id}
-          priority={false}
-          loading="lazy"
+          placeholder="empty"
+          priority={priority}
           className="object-contain w-full h-full bg-black"
         />
       </div>

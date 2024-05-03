@@ -10,6 +10,5 @@ export function normalizeContent(data: ContentCard): Content {
     author: `${data.textData?.author?.first} ${data.textData?.author?.last}`,
     subTitle: data.textData?.subTitle,
     commentsCount: data.comments?.length,
-    priority: data.metadata.priority,
   };
 }

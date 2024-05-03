@@ -9,7 +9,6 @@ export interface Content {
   description: string;
   author: string;
   commentsCount: number;
-  priority: number;
 }
 
 export interface ContentResponse { 
