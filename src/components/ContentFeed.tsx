@@ -13,7 +13,7 @@ async function getData(): Promise<Content[]> {
   return res.json();
 }
 
-export default async function ContentList() {
+export default async function ContentFeed() {
   const data = await getData();
   return (
     <div className="w-[20rem] md:w-[42rem]">
