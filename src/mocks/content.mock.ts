@@ -1,9 +1,11 @@
 import faker from "faker";
 import { Content, Comment, type ContentWithComments } from "@/types/content";
 
+// Create a mock contents objects with a specified count
 const generateMockContents = (count: number): Content[] =>
   Array.from({ length: count }, () => generateMockContent());
 
+// Create a mock content object
 const generateMockContent = (): Content => ({
   id: faker.random.uuid(),
   title: faker.lorem.sentence(),
@@ -14,6 +16,7 @@ const generateMockContent = (): Content => ({
   subTitle: faker.lorem.sentence(),
 });
 
+// Create a mock comment object
 const generateMockComment = (): Comment => ({
   text: faker.lorem.sentence(),
   author: faker.name.findName(),
@@ -21,6 +24,7 @@ const generateMockComment = (): Comment => ({
   likes: faker.random.number(),
 });
 
+// Create a mock content object with a specified number of comments
 const generateMockContentWithComments = (
   numberOfComments: number
 ): ContentWithComments  => ({
