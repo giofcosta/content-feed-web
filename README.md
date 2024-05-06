@@ -15,6 +15,7 @@ Developer experience first, extremely flexible code structured:
 - 💎 Comments section
 - ✅ Like button
 - 🦺 Read more description
+- 🚀 Well documented api
 
 Built-in technical feature:
 
@@ -43,6 +44,7 @@ npm run dev
 ```
 
 Open http://localhost:3000 with your favorite browser to see your project.
+Open http://localhost:3000/api-doc to see the api documentation.
 
 ### Project structure
 
@@ -51,6 +53,8 @@ Open http://localhost:3000 with your favorite browser to see your project.
 ├── README.md                       # README file
 ├── .github                         # GitHub folder
 ├── .vscode                         # VSCode configuration
+├── lib                             # libs folder
+│   └── swagger                     # Swagger configuration
 ├── public                          # Public assets folder
 ├── src
 │   ├── app                         # Next JS App (App Router)
