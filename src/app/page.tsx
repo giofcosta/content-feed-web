@@ -1,5 +1,4 @@
-import ContentList from "@/components/ContentList";
-import Image from "next/image";
+import ContentFeed from "@/components/ContentFeed";
 
 export default function Home() {
   return (
@@ -10,7 +9,7 @@ export default function Home() {
           Feed
         </mark>
       </h1>
-      <ContentList />
+      <ContentFeed />
     </main>
   );
 }

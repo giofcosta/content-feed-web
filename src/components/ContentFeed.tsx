@@ -13,10 +13,10 @@ async function getData(): Promise<Content[]> {
   return res.json();
 }
 
-export default async function ContentList() {
+export default async function ContentFeed() {
   const data = await getData();
   return (
-    <div className="w-[20rem] md:w-[42rem]">
+    <div data-testid="content-feed" className="w-[20rem] md:w-[42rem]">
       {data.map((content, index) => (
         <ContentCard key={index} content={content} priority={index < 3} />
       ))}
