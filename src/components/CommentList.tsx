@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import CommentBlock from "./CommentBlock";
 import type { Comment, ContentWithComments } from "@/types/content";
+import CommentBlock from "./CommentBlock";
 
 async function getComments(contentId: string): Promise<ContentWithComments> {
   const res = await fetch(`/api/v1/content/${contentId}`, {
@@ -16,7 +16,7 @@ async function getComments(contentId: string): Promise<ContentWithComments> {
   return res.json();
 }
 
-const CommentsBlock = ({
+const CommentList = ({
   contentId,
   count,
 }: {
@@ -36,7 +36,7 @@ const CommentsBlock = ({
   };
 
   return showComments ? (
-    <div className="relative flex flex-col w-full text-gray-700 border-t border-slate-200">
+    <div data-testid="comment-list" className="relative flex flex-col w-full text-gray-700 border-t border-slate-200">
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
         {comments.map((comment, index) => (
           <CommentBlock key={index} comment={comment} />
@@ -60,4 +60,4 @@ const CommentsBlock = ({
   );
 };
 
-export default CommentsBlock;
+export default CommentList;

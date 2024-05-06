@@ -4,7 +4,7 @@ import Like from "./Like";
 
 const CommentBlock = ({ comment }: { comment: Comment }) => {
   return (
-    <div className="flex items-center w-full p-3 leading-tight transition-all outline-none text-start">
+    <div data-testid="comment-block" className="flex items-center w-full p-3 leading-tight transition-all outline-none text-start">
       <div className="flex-none mr-4 place-items-center">
         <Image
           alt="profile pic"
